@@ -12,7 +12,7 @@ import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({ ...TyepOrmConfig.optsmysql, autoLoadEntities: true }),
+    TypeOrmModule.forRoot({ ...TyepOrmConfig.getConfig(), autoLoadEntities: true }),
     AuthModule,
     LoginModule,
     InfodemoModule,

@@ -1,9 +1,10 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { GeneralEntity } from "./general.entity";
+import { LoginEntity } from "./login.entity";
 
 @Entity({ name: 'informacion_demografica' })
 export class InfoDemoEntity extends GeneralEntity {
-    @Column({ type: 'tinyint', length: 3 })
+    @Column({ type: 'tinyint' })
     edad: number;
 
     @Column({ length: 10 })
@@ -29,6 +30,14 @@ export class InfoDemoEntity extends GeneralEntity {
 
     @Column({ length: 200 })
     apellidos: string;
+
+    @Column({ length: 40, unique: true })
+    login_id: string;
+
+    @JoinColumn({ name: 'login_id' })
+    @OneToOne(() => LoginEntity, login => login.info_demo)
+    login?: LoginEntity;
+
 
     constructor() {
         super();

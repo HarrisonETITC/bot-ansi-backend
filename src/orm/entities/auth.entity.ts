@@ -6,7 +6,7 @@ export class AuthEntity extends GeneralEntity {
     @Column({ unique: true, length: 100 })
     email: string;
 
-    @Column({ length: 50 })
+    @Column({ length: 255 })
     contrasena: string;
 
     @Column({ length: 20 })

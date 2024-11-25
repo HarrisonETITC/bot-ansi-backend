@@ -1,13 +1,15 @@
 import { BeforeInsert, PrimaryColumn } from "typeorm";
+import { v4 as uuidv4 } from "uuid";
 
 export abstract class GeneralEntity {
     @PrimaryColumn({ 
-        type: 'bigint'
+        length: 40,
+        unique: true
     })
-    id: number;
+    id: string;
 
     @BeforeInsert()
     setBeforeInsert(): void {
-        this.id = Date.now();
+        this.id = uuidv4();
     }
 }

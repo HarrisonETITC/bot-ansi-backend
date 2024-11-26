@@ -18,7 +18,7 @@ export class AuthController {
     async registerAuth(@Body() newAuth: AuthEntity) {
         await this.authService.registerUser(newAuth);
 
-        return { message: "Usuario creado correctamente" }
+        return { message: "Usuario creado correctamente" } 
     } */
 
     @Post('get-token')

@@ -8,6 +8,10 @@ export class LoginEntity extends GeneralEntity {
     @Column({ unique: true, length: 10 })
     numero_celular: string;
 
+    @Column({ length: 255 })
+    contrasena: string;
+
+
     @OneToOne(() => InfoDemoEntity, info => info.login)
     info_demo?: InfoDemoEntity;
 

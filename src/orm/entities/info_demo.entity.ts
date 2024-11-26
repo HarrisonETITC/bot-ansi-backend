@@ -4,31 +4,31 @@ import { LoginEntity } from "./login.entity";
 
 @Entity({ name: 'informacion_demografica' })
 export class InfoDemoEntity extends GeneralEntity {
-    @Column({ type: 'tinyint' })
+    @Column({ type: 'tinyint', nullable: true, })
     edad: number;
 
-    @Column({ length: 10 })
+    @Column({ length: 10, nullable: true, default: null })
     genero: string;
 
-    @Column({ length: 200 })
+    @Column({ length: 200, nullable: true })
     ocupacion: string;
 
-    @Column({ length: 15 })
+    @Column({ length: 15, nullable: true })
     estado_civil: string;
 
-    @Column({ length: 50 })
+    @Column({ length: 50, nullable: true })
     ciudad: string;
 
-    @Column({ length: 30 })
+    @Column({ length: 30, nullable: true })
     etnia: string;
 
-    @Column({ length: 200 })
+    @Column({ length: 200, nullable: true })
     email: string;
 
-    @Column({ length: 200 })
+    @Column({ length: 200, nullable: true })
     nombres: string;
 
-    @Column({ length: 200 })
+    @Column({ length: 200, nullable: true })
     apellidos: string;
 
     @Column({ length: 40, unique: true })

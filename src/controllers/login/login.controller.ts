@@ -14,7 +14,8 @@ export class LoginController {
     @Post('find')
     @HttpCode(HttpStatus.ACCEPTED)
     async findLoginByNumber(@Body() data: { numero_celular: string }) {
-        return { data: await this.loginService.getByPhoneNumber(data.numero_celular) };
+        const finded = await this.loginService.getByPhoneNumber(data.numero_celular);
+        return { data: (finded == null) ? null : { id: finded.id, numero_celular: finded.numero_celular } };
     }
 
     @Post('register')

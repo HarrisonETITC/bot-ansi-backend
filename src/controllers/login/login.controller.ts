@@ -21,6 +21,12 @@ export class LoginController {
     @Post('register')
     @HttpCode(HttpStatus.CREATED)
     async registerLogin(@Body() data: LoginEntity) {
+        const finded = await this.loginService.getByPhoneNumber(data.numero_celular);
+
+        if (finded != null) {
+            return { message: "El usuario ya se encuentra registrado" };
+        }
+
         console.log(await this.loginService.create(data));
 
         return { message: "Usuario creado correctamente" };
